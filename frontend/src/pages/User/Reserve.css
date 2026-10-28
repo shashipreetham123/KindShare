@@ -1,0 +1,658 @@
+/* ==========================================================================
+   Reserve.css - Active Reservations View (Light Mode)
+   ========================================================================== */
+
+.reserves-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Header */
+.reserves-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding: 1.35rem 1.75rem;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.125rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.reserves-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.header-icon {
+  color: #6366f1;
+}
+
+.reserves-title-row h1 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.reserves-subtitle {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-top: 0.15rem;
+}
+
+/* 1) Section Switcher Tabs: For Donor and For Beneficiary */
+.section-tabs-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #f1f5f9;
+  padding: 0.35rem;
+  border-radius: 0.85rem;
+  border: 1px solid #e2e8f0;
+}
+
+.tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 0.65rem;
+  border: none;
+  background: transparent;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover:not(.tab-btn-active) {
+  color: #0f172a;
+}
+
+.tab-btn-active {
+  background-color: #ffffff;
+  color: #4f46e5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.tab-counter-badge {
+  background-color: #e0e7ff;
+  color: #4338ca;
+  font-size: 0.725rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 9999px;
+}
+
+/* Feedback Alerts */
+.reserves-alert {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.15rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.alert-error {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+}
+
+.alert-success {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+}
+
+.alert-icon {
+  flex-shrink: 0;
+}
+
+/* Main Content Area */
+.reserves-main-content {
+  flex: 1;
+}
+
+.reserves-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Reserve Card Styling */
+.reserve-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.125rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.reserve-card:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.08);
+}
+
+/* Card Header with Product Info */
+.reserve-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.reserve-product-thumb {
+  width: 74px;
+  height: 74px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumb-fallback {
+  color: #94a3b8;
+}
+
+.reserve-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.reserve-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.reserve-active-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #2563eb;
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 0.12rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.pill-status-done {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.675rem;
+  font-weight: 700;
+  color: #16a34a;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 0.12rem 0.45rem;
+  border-radius: 9999px;
+}
+
+.reserve-product-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.reserve-product-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.qty-tag strong {
+  color: #0f172a;
+}
+
+.stock-tag {
+  color: #94a3b8;
+}
+
+/* Middle: Partner Attribution Box */
+.reserve-partner-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  background-color: #fafaf9;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.user-box-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.user-avatar-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #e0e7ff;
+  color: #4f46e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c7d2fe;
+}
+
+.user-info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-role-label {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.user-name-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.user-name-tag strong {
+  font-size: 0.875rem;
+  color: #1e293b;
+}
+
+.verified-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.675rem;
+  font-weight: 600;
+  color: #16a34a;
+  background-color: #dcfce7;
+  padding: 0.05rem 0.4rem;
+  border-radius: 9999px;
+  border: 1px solid #bbf7d0;
+}
+
+.reserve-date-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+/* Dual Confirmation Status Callout */
+.reserve-status-callout {
+  padding: 0.85rem 1.25rem 0;
+}
+
+.callout-box {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.callout-waiting {
+  background-color: #fffbeb;
+  border: 1px solid #fef3c7;
+  color: #b45309;
+}
+
+.callout-action-needed {
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #047857;
+  font-weight: 600;
+}
+
+.callout-info {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+}
+
+/* Card Actions: Both Complete and Cancel Button */
+.reserve-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 0.75rem;
+  padding: 1.15rem 1.25rem;
+  margin-top: auto;
+}
+
+.btn-cancel-reserve {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.65rem 0.9rem;
+  background-color: #ffffff;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  border-radius: 0.65rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel-reserve:hover {
+  background-color: #fee2e2;
+  border-color: #f87171;
+  color: #b91c1c;
+}
+
+.btn-complete-reserve {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1rem;
+  background-color: #16a34a;
+  border: 1px solid #16a34a;
+  color: #ffffff;
+  border-radius: 0.65rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(22, 163, 74, 0.2);
+}
+
+.btn-complete-reserve:hover:not(:disabled) {
+  background-color: #15803d;
+  border-color: #15803d;
+}
+
+.btn-complete-reserve:disabled,
+.btn-complete-confirmed {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #64748b;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Loading & Empty States */
+.reserves-loading-state,
+.reserves-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  padding: 4.5rem 2rem;
+  min-height: 380px;
+}
+
+.spin-icon {
+  animation: spin 1s linear infinite;
+  color: #6366f1;
+  margin-bottom: 1rem;
+}
+
+.empty-state-icon-wrap {
+  width: 76px;
+  height: 76px;
+  background-color: #f1f5f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  margin-bottom: 1rem;
+}
+
+.reserves-empty-state h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.4rem;
+}
+
+.reserves-empty-state p {
+  color: #64748b;
+  font-size: 0.925rem;
+  max-width: 440px;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.btn-browse-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.4rem;
+  background-color: #6366f1;
+  color: #ffffff;
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.25);
+}
+
+.btn-browse-link:hover {
+  background-color: #4f46e5;
+  transform: translateY(-1px);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .reserves-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .section-tabs-bar {
+    width: 100%;
+  }
+  .tab-btn {
+    flex: 1;
+    justify-content: center;
+  }
+  .reserve-card-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* User Info Action Button */
+.btn-user-info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #6366f1;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s ease;
+  margin-left: 0.15rem;
+}
+
+.btn-user-info:hover {
+  background-color: #e0e7ff;
+  border-color: #a5b4fc;
+  color: #4338ca;
+  transform: scale(1.08);
+}
+
+/* User Details Modal Body */
+.user-details-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: 0.25rem;
+}
+
+.user-details-hero {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 1rem 1.25rem;
+  border-radius: 0.85rem;
+}
+
+.user-details-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #e0e7ff;
+  color: #4f46e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c7d2fe;
+  flex-shrink: 0;
+}
+
+.user-details-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.user-details-name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.user-details-name-wrap h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.user-details-badge {
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: #6366f1;
+}
+
+/* Fields List */
+.user-details-fields-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.user-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 1rem;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+}
+
+.user-detail-icon-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 0.5rem;
+  background-color: #f1f5f9;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.user-detail-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.user-detail-label {
+  font-size: 0.725rem;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.user-detail-val {
+  font-size: 0.9rem;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.user-detail-link {
+  font-size: 0.9rem;
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.user-detail-link:hover {
+  text-decoration: underline;
+  color: #1d4ed8;
+}
+
+.user-detail-empty {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  font-style: italic;
+}
+
