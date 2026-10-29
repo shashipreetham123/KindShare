@@ -60,7 +60,7 @@ function Dashboard() {
     { name: 'Requests', path: 'requests', icon: Inbox },
     { name: 'Reserves', path: 'reserves', icon: BookmarkCheck },
     { name: 'History', path: 'history', icon: History },
-    { name: 'Account Settings', path: 'account-settings', icon: Settings }
+    // { name: 'Account Settings', path: 'account-settings', icon: Settings }
   ];
 
   const adminLinks = [
